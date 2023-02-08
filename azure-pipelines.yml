@@ -1,7 +1,4 @@
 # Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
 - master
@@ -12,6 +9,27 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+steps:
+# Prepare Analysis Configuration task
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'SonarQube'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'com.engie.gbs.engiedigital-walnut.sqap:sqap-testazuredevops'
+    cliProjectName: 'walnut_sqap-testazuredevops'
+    cliSources: '.'
+# Run Code Analysis task
+- task: SonarQubeAnalyze@5
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# Publish Quality Gate Result task
+- task: SonarQubePublish@5
+  inputs:
+    pollingTimeoutSec: '300'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
