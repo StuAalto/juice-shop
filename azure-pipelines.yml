@@ -7,8 +7,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+#- script: echo Hello, world!
+#  displayName: 'Run a one-line script'
 
 # Prepare Analysis Configuration task
 - task: SonarQubePrepare@5
@@ -30,7 +30,7 @@ steps:
   inputs:
     pollingTimeoutSec: '300'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+#- script: |
+#    echo Add other tasks to build, test, and deploy your project.
+#    echo See https://aka.ms/yaml
+#  displayName: 'Run a multi-line script'
