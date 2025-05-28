@@ -11,7 +11,7 @@ steps:
 #  displayName: 'Run a one-line script'
 
 # Prepare Analysis Configuration task
-- task: SonarQubePrepare@5
+- task: SonarQubePrepare@7
   inputs:
     SonarQube: 'SonarQube'
     scannerMode: 'CLI'
@@ -20,13 +20,13 @@ steps:
     cliProjectName: 'walnut_sqap-testazuredevops'
     cliSources: '.'
 # Run Code Analysis task
-- task: SonarQubeAnalyze@5
+- task: SonarQubeAnalyze@7
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
 # Publish Quality Gate Result task
-- task: SonarQubePublish@5
+- task: SonarQubePublish@7
   inputs:
     pollingTimeoutSec: '300'
 
